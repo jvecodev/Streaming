@@ -6,8 +6,8 @@ public class Streaming {
     private String titulo;
     private String genero;
     private String classificacaoEtaria;
+    private String lancamento;
     private int duracao;
-    private SimpleDateFormat lancamento = new SimpleDateFormat("dd/MM/yyyy");
 
     public Streaming(String titulo, int duracao, String genero, String classificacaoEtaria) {
         this.titulo = titulo;
