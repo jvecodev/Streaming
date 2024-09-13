@@ -7,8 +7,18 @@ import java.util.ArrayList;
 
 public class Plataforma {
     private String nome;
-    private ArrayList<Usuario> usuarios;
-    private ArrayList<Streaming> conteudos; // filmes e series
+    private ArrayList<Usuario> usuarios = new ArrayList<>();
+    private ArrayList<Streaming> conteudos = new ArrayList<>(); // filmes e series
+
+    public Plataforma(String nome, ArrayList<Usuario> usuarios, ArrayList<Streaming> conteudos) {
+        this.nome = nome;
+        this.usuarios = usuarios;
+        this.conteudos = conteudos;
+    }
+
+    public Plataforma(String nome) {
+        this.nome = nome;
+    }
 
     public void adicionarUsuario(Usuario usuario) {
         usuarios.add(usuario);
