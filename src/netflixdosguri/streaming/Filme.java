@@ -11,6 +11,17 @@ public class Filme extends Streaming {
     public Filme() {
     }
 
+    @Override
+    public String toString() {
+        return "Filme{" +
+                "Título='" + getTitulo() + '\'' +
+                ", Gênero='" + getGenero() + '\'' +
+                ", Duração=" + getDuracao() + " minutos" +
+                ", Diretor='" + diretor + '\'' +
+                ", Classificação Etária=" + getClassificacaoEtaria() +
+                '}';
+    }
+
     public String getDiretor() {
         return diretor;
     }

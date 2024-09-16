@@ -32,6 +32,17 @@ public class Usuario {
     public Usuario() {
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                ", dataNascimento='" + dataNascimento + '\'' +
+                ", pagamento=" + pagamento +
+                '}';
+    }
+
     public String getNome() {
         return nome;
     }
