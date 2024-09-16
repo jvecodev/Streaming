@@ -2,8 +2,6 @@ package netflixdosguri.usuario;
 
 import netflixdosguri.pagamento.Pagamento;
 
-import java.text.SimpleDateFormat;
-
 public class Premium extends Usuario {
     private boolean downloadOffline;
 

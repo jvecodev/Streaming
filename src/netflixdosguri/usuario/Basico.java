@@ -2,8 +2,6 @@ package netflixdosguri.usuario;
 
 import netflixdosguri.pagamento.Pagamento;
 
-import java.text.SimpleDateFormat;
-
 public class Basico extends Usuario {
     private int anuncios;
 
