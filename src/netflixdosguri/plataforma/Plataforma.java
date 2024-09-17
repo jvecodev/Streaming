@@ -11,8 +11,6 @@ public class Plataforma {
     private String nome;
     private static ArrayList<Usuario> usuarios = new ArrayList<>();
     private static ArrayList<Streaming> conteudos = new ArrayList<>(); // filmes e series
-    private static Filme filme = new Filme();
-    private static Serie serie = new Serie();
     private static Usuario usuario = new Usuario();
 
     public Plataforma(String nome, ArrayList<Usuario> usuarios, ArrayList<Streaming> conteudos) {
@@ -81,6 +79,8 @@ public class Plataforma {
     }
 
     public static void adicionarFilme(String titulo, String genero, int duracao, String diretor, int classificacaoEtaria) {
+        Filme filme = new Filme();
+
         filme.setTitulo(titulo);
         filme.setGenero(genero);
         filme.setDuracao(duracao);
@@ -91,6 +91,8 @@ public class Plataforma {
     }
 
     public static void adicionarSerie(String titulo, String genero, int duracao, int temporadas, int episodios, int classificacaoEtaria) {
+        Serie serie = new Serie();
+
         serie.setTitulo(titulo);
         serie.setGenero(genero);
         serie.setDuracao(duracao);
