@@ -27,7 +27,3 @@ O objetivo deste projeto é aplicar os conceitos de:
 - Herança
 - Encapsulamento
 - Abstração
-
-## Estrutura do Projeto
-
-- ...
