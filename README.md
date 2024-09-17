@@ -2,6 +2,10 @@
 
 Este projeto é um exercício prático desenvolvido como parte do curso de Programação Orientada a Objetos (POO) na faculdade. Nele, aplicamos os conceitos aprendidos até o momento para criar uma aplicação de streaming executada no console.
 
+- Eduardo Henrique Fabri
+- João Vitor Correa Oliveira
+- Renan Herculano
+
 ## Funcionalidades
 
 A aplicação simula um serviço de streaming com as seguintes características:
@@ -18,13 +22,6 @@ O objetivo deste projeto é aplicar os conceitos de:
 - Herança
 - Encapsulamento
 - Abstração
-
-## Como Executar
-
-1. Clone o repositório:  
-   `git clone https://github.com/jvecodev/Streaming.git`
-   
-2. Compile e execute o projeto em sua IDE ou no terminal utilizando `javac` e `java`.
 
 ## Estrutura do Projeto
 
