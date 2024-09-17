@@ -9,8 +9,8 @@ import java.util.Scanner;
 
 public class StreamingApp {
     private ArrayList<Usuario> usuarios;
-    private Usuario usuario = new Usuario();
     private ArrayList<Streaming> conteudos;
+    private Usuario usuario = new Usuario();
 
     public void menuInicial() {
         Scanner sc = new Scanner(System.in);
@@ -40,7 +40,8 @@ public class StreamingApp {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println
-                    ("(1) - Adicionar Usuario\n" +
+                    ("## Menu Usuario ##\n" +
+                            "(1) - Adicionar Usuario\n" +
                             "(2) - Ver Conteúdos Disponíveis\n" +
                             "(3) - Gerenciar Perfil\n" +
                             "(4) - Ver Status de Assinatura\n" +
@@ -67,12 +68,25 @@ public class StreamingApp {
                     String dataNascimento = sc.nextLine();
 
                     Plataforma.adicionarUsuario(nome, email, senha, dataNascimento);
+                    break;
                 case 2:
                     Plataforma.exibirConteudos();
+                    break;
                 case 3:
-                    // falta gerenciar perfil
+                    System.out.println("Editar Usuário");
+
+                    System.out.print("O que você deseja mudar? (1: Nome, 2: Email, 3: Senha, 4: Data de Nascimento): ");
+                    escolha = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Digite o novo valor: ");
+                    String novoValor = sc.nextLine();
+
+                    Plataforma.editarUsuario(escolha, novoValor);
+                    break;
                 case 4:
                     // falta status de assinatura
+                    break;
                 case 5:
                     return;
             }
@@ -83,20 +97,20 @@ public class StreamingApp {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println
-                    ("(1) - Adicionar Conteúdo (Filme/Série)\n" +
-                            "(2) - Editar Conteúdo (Filme/Série)\n" +
-                            "(3) - Exibir Usuários\n" +
-                            "(4) - Exibir Conteúdos\n" +
-                            "(5) - Sair\n");
+                    ("## Menu Admin ##\n" +
+                    "(1) - Adicionar Conteúdo | Filme\n" +
+                    "(2) - Adicionar Conteúdo | Série\n" +
+                    "(3) - Editar Conteúdo | Filme ou Serie\n" +
+                    "(4) - Exibir Usuários\n" +
+                    "(5) - Exibir Conteúdos\n" +
+                    "(6) - Sair");
 
             System.out.print("Escolha: ");
             int escolha = sc.nextInt();
 
             switch (escolha) {
                 case 1:
-                    System.out.println("Adicionar Filme(1) | Adicionar Série(2)");
-                    System.out.print("Escolha: ");
-                    escolha = sc.nextInt();
+                    System.out.println("Adicionar Filme)");
 
                     System.out.print("Titulo: ");
                     sc.nextLine();
@@ -115,8 +129,62 @@ public class StreamingApp {
                     System.out.print("Classificação Etaria: ");
                     int classificacaoEtaria = sc.nextInt();
 
+                    Plataforma.adicionarFilme(titulo, genero, duracao, diretor, classificacaoEtaria);
                     System.out.println("Filme adicionado com sucesso!");
-                    Plataforma.adicionarConteudo(escolha, titulo, genero, duracao, diretor, classificacaoEtaria);
+
+                    break;
+                case 2:
+                    System.out.println("Adicionar Série");
+
+                    System.out.print("Titulo: ");
+                    sc.nextLine();
+                    titulo = sc.nextLine();
+
+                    System.out.print("Genero: ");
+                    genero = sc.nextLine();
+
+                    System.out.print("Duração: ");
+                    duracao = sc.nextInt();
+
+                    System.out.print("Temporadas: ");
+                    int temporadas = sc.nextInt();
+
+                    System.out.print("Episodios: ");
+                    int episodios = sc.nextInt();
+
+                    System.out.print("Classificação Etaria: ");
+                    classificacaoEtaria = sc.nextInt();
+
+                    Plataforma.adicionarSerie(titulo, genero, duracao, temporadas, episodios, classificacaoEtaria);
+                    System.out.println("Série adicionado com sucesso!");
+
+                    break;
+                case 3:
+                    System.out.println("Alterando Conteúdo");
+
+                    System.out.println("Qual conteúdo você quer alterar: ");
+                    Plataforma.exibirConteudos();
+
+                    System.out.print("Escolha o número do conteúdo que deseja mudar: ");
+                    int opcao = sc.nextInt();
+
+                    System.out.print("O que você deseja mudar? (1: Título, 2: Gênero, 3: Duração): ");
+                    escolha = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Digite o novo valor: ");
+                    String novoValor = sc.nextLine();
+
+                    Plataforma.editarConteudo(opcao, escolha, novoValor);
+                    break;
+                case 4:
+                    Plataforma.exibirUsuarios();
+                    break;
+                case 5:
+                    Plataforma.exibirConteudos();
+                    break;
+                case 6:
+                    return;
                 default:
                     break;
             }
