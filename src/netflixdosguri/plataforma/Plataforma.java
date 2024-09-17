@@ -25,15 +25,14 @@ public class Plataforma {
         this.nome = nome;
     }
 
-    public Plataforma() {
-    }
+    public Plataforma() {}
 
     public static void adicionarUsuario(String nome, String email, String senha, String dataNascimento) {
         Usuario usuario = new Usuario(nome, email, senha, dataNascimento);
         usuarios.add(usuario);
     }
 
-    public void adicionarConteudo(Streaming conteudo) {
+    public static void adicionarConteudo(Streaming conteudo) {
         conteudos.add(conteudo);
     }
 
@@ -53,12 +52,16 @@ public class Plataforma {
         switch (opcao) {
             case 1:
                 usuario.setNome(novoValor);
+                break;
             case 2:
                 usuario.setEmail(novoValor);
+                break;
             case 3:
                 usuario.setSenha(novoValor);
+                break;
             case 4:
                 usuario.setDataNascimento(novoValor);
+                break;
             default:
                 System.out.println("Opção inválida.");
                 break;

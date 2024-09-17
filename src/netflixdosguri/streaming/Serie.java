@@ -10,19 +10,17 @@ public class Serie extends Streaming {
         this.episodios = episodios;
     }
 
-    public Serie() {
-    }
+    public Serie() {}
 
     @Override
     public String toString() {
-        return "Serie{" +
-                "Título='" + getTitulo() + '\'' +
-                ", Gênero='" + getGenero() + '\'' +
-                ", Duração=" + getDuracao() + " minutos" +
-                ", Temporadas=" + temporadas +
-                ", Episódios=" + episodios +
-                ", Classificação Etária=" + getClassificacaoEtaria() +
-                '}';
+        return "Serie | " +
+                "Título: " + getTitulo() + " | " +
+                "Gênero: " + getGenero() + " | " +
+                "Duração: " + getDuracao() + " minutos" + " | " +
+                "Temporadas: " + temporadas + " | " +
+                "Episódios: " + episodios + " | " +
+                "Classificação Etária: " + getClassificacaoEtaria();
     }
 
     public int getTemporadas() {

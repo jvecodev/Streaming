@@ -8,18 +8,16 @@ public class Filme extends Streaming {
         this.diretor = diretor;
     }
 
-    public Filme() {
-    }
+    public Filme() {}
 
     @Override
     public String toString() {
-        return "Filme{" +
-                "Título='" + getTitulo() + '\'' +
-                ", Gênero='" + getGenero() + '\'' +
-                ", Duração=" + getDuracao() + " minutos" +
-                ", Diretor='" + diretor + '\'' +
-                ", Classificação Etária=" + getClassificacaoEtaria() +
-                '}';
+        return "Filme: " +
+                "Título: " + getTitulo() + " | " +
+                "Gênero: " + getGenero() + " | " +
+                "Duração: " + getDuracao() + " minutos" + " | " +
+                "Diretor: " + diretor + " | " +
+                "Classificação Etária: " + getClassificacaoEtaria();
     }
 
     public String getDiretor() {

@@ -34,13 +34,12 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" +
-                "nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", senha='" + senha + '\'' +
-                ", dataNascimento='" + dataNascimento + '\'' +
-                ", pagamento=" + pagamento +
-                '}';
+        return "Usuario | " +
+                "Nome: " + nome + " | " +
+                "Email: " + email + " | " +
+                "Senha: " + senha + " | " +
+                "Data Nascimento: " + dataNascimento + " | " +
+                "Pagamento: " + pagamento;
     }
 
     public String getNome() {
