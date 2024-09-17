@@ -10,10 +10,15 @@ Este projeto é um exercício prático desenvolvido como parte do curso de Progr
 
 A aplicação simula um serviço de streaming com as seguintes características:
 
-- **Streaming**: Superclasse que contém os atributos e métodos gerais das mídias oferecidas no serviço.
-- **Filme e Série**: Classes filhas de `Streaming` que representam tipos específicos de conteúdo disponíveis para os usuários.
-- **Usuario**: Superclasse para representar os usuários da plataforma.
-- **Gratis e Premium**: Classes filhas de `Usuario`, representando diferentes tipos de assinatura e acesso ao conteúdo.
+- **Pagamento:** Representa o pagamento realizado por um usuário, com atributos como tipo, valor e data.
+- **Plano:** Define o plano de assinatura da plataforma, com nome, preço mensal e se permite download.
+- **Plataforma:** Gerencia usuários e conteúdos (filmes e séries), permitindo adicionar, exibir e editar ambos.
+- **Avaliacao:** Associa um usuário a um conteúdo de streaming, registrando a nota dada (1 a 5 estrelas).
+- **Filme:** Herda de Streaming, representando filmes com o atributo adicional de diretor.
+- **Série:** Herda de Streaming, representando séries com atributos de temporadas e episódios.
+- **Streaming:** Superclasse genérica que contém atributos como título, gênero, duração e classificação etária.
+- **Basico e Premium:** Heranças de Usuario, onde Basico inclui anúncios e Premium oferece download offline.
+- **Usuario:** Representa os usuários da plataforma, com informações pessoais e de pagamento.
 
 ## Objetivo
 
