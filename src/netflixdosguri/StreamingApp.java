@@ -1,7 +1,12 @@
 package netflixdosguri;
 
+import netflixdosguri.pagamento.Pagamento;
 import netflixdosguri.plataforma.Plataforma;
+import netflixdosguri.streaming.Filme;
+import netflixdosguri.streaming.Serie;
 import netflixdosguri.streaming.Streaming;
+import netflixdosguri.usuario.Basico;
+import netflixdosguri.usuario.Premium;
 import netflixdosguri.usuario.Usuario;
 
 import java.util.ArrayList;
@@ -11,6 +16,7 @@ public class StreamingApp {
     private ArrayList<Usuario> usuarios;
     private ArrayList<Streaming> conteudos;
     private Usuario usuario = new Usuario();
+    Plataforma plataforma = new Plataforma();
 
     public void menuInicial() {
         Scanner sc = new Scanner(System.in);
@@ -43,8 +49,8 @@ public class StreamingApp {
                     ("## Menu Usuario ##\n" +
                             "(1) - Adicionar Usuario\n" +
                             "(2) - Ver Conteúdos Disponíveis\n" +
-                            "(3) - Gerenciar Perfil\n" +
-                            "(4) - Ver Status de Assinatura\n" +
+                            "(3) - Gerenciar Perfil\n" + // nao funciona
+                            "(4) - Ver Status de Assinatura\n" + // nao funciona
                             "(5) - Sair\n");
 
             System.out.print("Escolha: ");
@@ -67,10 +73,10 @@ public class StreamingApp {
                     System.out.print("Data de Nascimento: ");
                     String dataNascimento = sc.nextLine();
 
-                    Plataforma.adicionarUsuario(nome, email, senha, dataNascimento);
+                    plataforma.adicionarUsuario(nome, email, senha, dataNascimento);
                     break;
                 case 2:
-                    Plataforma.exibirConteudos();
+                    plataforma.exibirConteudos();
                     break;
                 case 3:
                     System.out.println("Editar Usuário");
@@ -82,7 +88,7 @@ public class StreamingApp {
                     System.out.print("Digite o novo valor: ");
                     String novoValor = sc.nextLine();
 
-                    Plataforma.editarUsuario(escolha, novoValor);
+                    plataforma.editarUsuario(escolha, novoValor);
                     break;
                 case 4:
                     // falta status de assinatura
@@ -98,12 +104,12 @@ public class StreamingApp {
         while (true) {
             System.out.println
                     ("## Menu Admin ##\n" +
-                    "(1) - Adicionar Conteúdo | Filme\n" +
-                    "(2) - Adicionar Conteúdo | Série\n" +
-                    "(3) - Editar Conteúdo | Filme ou Serie\n" +
-                    "(4) - Exibir Usuários\n" +
-                    "(5) - Exibir Conteúdos\n" +
-                    "(6) - Sair");
+                            "(1) - Adicionar Conteúdo | Filme\n" +
+                            "(2) - Adicionar Conteúdo | Série\n" +
+                            "(3) - Editar Conteúdo | Filme ou Serie\n" +
+                            "(4) - Exibir Usuários\n" +
+                            "(5) - Exibir Conteúdos\n" +
+                            "(6) - Sair");
 
             System.out.print("Escolha: ");
             int escolha = sc.nextInt();
@@ -129,7 +135,7 @@ public class StreamingApp {
                     System.out.print("Classificação Etaria: ");
                     int classificacaoEtaria = sc.nextInt();
 
-                    Plataforma.adicionarFilme(titulo, genero, duracao, diretor, classificacaoEtaria);
+                    plataforma.adicionarFilme(titulo, genero, duracao, diretor, classificacaoEtaria);
                     System.out.println("Filme adicionado com sucesso!");
 
                     break;
@@ -155,7 +161,7 @@ public class StreamingApp {
                     System.out.print("Classificação Etaria: ");
                     classificacaoEtaria = sc.nextInt();
 
-                    Plataforma.adicionarSerie(titulo, genero, duracao, temporadas, episodios, classificacaoEtaria);
+                    plataforma.adicionarSerie(titulo, genero, duracao, temporadas, episodios, classificacaoEtaria);
                     System.out.println("Série adicionado com sucesso!");
 
                     break;
@@ -163,7 +169,7 @@ public class StreamingApp {
                     System.out.println("Alterando Conteúdo");
 
                     System.out.println("Qual conteúdo você quer alterar: ");
-                    Plataforma.exibirConteudos();
+                    plataforma.exibirConteudos();
 
                     System.out.print("Escolha o número do conteúdo que deseja mudar: ");
                     int opcao = sc.nextInt();
@@ -175,13 +181,13 @@ public class StreamingApp {
                     System.out.print("Digite o novo valor: ");
                     String novoValor = sc.nextLine();
 
-                    Plataforma.editarConteudo(opcao, escolha, novoValor);
+                    plataforma.editarConteudo(opcao, escolha, novoValor);
                     break;
                 case 4:
-                    Plataforma.exibirUsuarios();
+                    plataforma.exibirUsuarios();
                     break;
                 case 5:
-                    Plataforma.exibirConteudos();
+                    plataforma.exibirConteudos();
                     break;
                 case 6:
                     return;

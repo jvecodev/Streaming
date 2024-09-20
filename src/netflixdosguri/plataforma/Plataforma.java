@@ -1,17 +1,20 @@
 package netflixdosguri.plataforma;
 
+import netflixdosguri.pagamento.Pagamento;
 import netflixdosguri.streaming.Filme;
 import netflixdosguri.streaming.Serie;
 import netflixdosguri.streaming.Streaming;
 import netflixdosguri.usuario.Usuario;
 
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
 public class Plataforma {
     private String nome;
-    private static ArrayList<Usuario> usuarios = new ArrayList<>();
-    private static ArrayList<Streaming> conteudos = new ArrayList<>(); // filmes e series
-    private static Usuario usuario = new Usuario();
+    private ArrayList<Usuario> usuarios = new ArrayList<>();
+    private ArrayList<Streaming> conteudos = new ArrayList<>(); // filmes e series
+    private Filme filme = new Filme();
+    private Serie serie = new Serie();
 
     public Plataforma(String nome, ArrayList<Usuario> usuarios, ArrayList<Streaming> conteudos) {
         this.nome = nome;
@@ -23,18 +26,19 @@ public class Plataforma {
         this.nome = nome;
     }
 
-    public Plataforma() {}
+    public Plataforma() {
+    }
 
-    public static void adicionarUsuario(String nome, String email, String senha, String dataNascimento) {
+    public void adicionarUsuario(String nome, String email, String senha, String dataNascimento) {
         Usuario usuario = new Usuario(nome, email, senha, dataNascimento);
         usuarios.add(usuario);
     }
 
-    public static void adicionarConteudo(Streaming conteudo) {
+    public void adicionarConteudo(Streaming conteudo) {
         conteudos.add(conteudo);
     }
 
-    public static void exibirUsuarios() {
+    public void exibirUsuarios() {
         if (usuarios.isEmpty()) {
             System.out.println("Nenhum usuario disponível.");
         } else {
@@ -44,9 +48,7 @@ public class Plataforma {
         }
     }
 
-    public static void editarUsuario(int opcao, String novoValor) {
-        usuarios.toString();
-
+    public void editarUsuario(int opcao, String novoValor) {
         switch (opcao) {
             case 1:
                 usuario.setNome(novoValor);
@@ -68,7 +70,7 @@ public class Plataforma {
     }
 
 
-    public static void exibirConteudos() {
+    public void exibirConteudos() {
         if (conteudos.isEmpty()) {
             System.out.println("Nenhum conteúdo disponível.");
         } else {
@@ -78,7 +80,7 @@ public class Plataforma {
         }
     }
 
-    public static void adicionarFilme(String titulo, String genero, int duracao, String diretor, int classificacaoEtaria) {
+    public void adicionarFilme(String titulo, String genero, int duracao, String diretor, int classificacaoEtaria) {
         Filme filme = new Filme();
 
         filme.setTitulo(titulo);
@@ -90,7 +92,7 @@ public class Plataforma {
         conteudos.add(filme);
     }
 
-    public static void adicionarSerie(String titulo, String genero, int duracao, int temporadas, int episodios, int classificacaoEtaria) {
+    public void adicionarSerie(String titulo, String genero, int duracao, int temporadas, int episodios, int classificacaoEtaria) {
         Serie serie = new Serie();
 
         serie.setTitulo(titulo);
@@ -103,7 +105,7 @@ public class Plataforma {
         conteudos.add(serie);
     }
 
-    public static void editarConteudo(int indice, int opcao, String novoValor) {
+    public void editarConteudo(int indice, int opcao, String novoValor) {
         int indiceCorreto = indice - 1;
 
         if (indiceCorreto >= 0 && indiceCorreto < conteudos.size()) {
